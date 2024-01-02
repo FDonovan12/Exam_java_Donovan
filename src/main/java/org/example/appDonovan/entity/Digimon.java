@@ -27,7 +27,7 @@ public class Digimon {
     @Override
     public String toString() {
         return "Digimon{" +
-//                String.format(randColorBack(this, "id") + "id=%-4s",id) +
+                String.format(randColorBack(this, "id") + "id=%-4s",id) +
                 String.format(randColorBack(this, "name") + ", name=%-20s",name) +
                 String.format(randColorBack(this, "level") + ", level=%-15s",level) +
                 String.format(randColorBack(this, "img") + ", img=%-70s",img) +

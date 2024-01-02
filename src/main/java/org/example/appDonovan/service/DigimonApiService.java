@@ -2,6 +2,7 @@ package org.example.appDonovan.service;
 
 import com.mysql.cj.xdevapi.JsonArray;
 import org.example.appDonovan.entity.Digimon;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -15,7 +16,7 @@ import static org.example.appDonovan.service.Color.ANSI_RESET;
 
 public class DigimonApiService {
 
-    private HttpClientService httpClientService = new HttpClientService();
+    private final HttpClientService httpClientService = new HttpClientService();
 
     public List<Digimon> getDigimons() {
         String url = "https://digimon-api.vercel.app/api/digimon";
@@ -24,19 +25,25 @@ public class DigimonApiService {
             return null;
         }
         try {
-            json = json.replace("[", "");
-            json = json.replace("]", "");
-            json = json.replaceAll("},", "}£");
-            List<String> array = Arrays.stream(json.split("£")).toList();
+//            json = json.replace("[", "");
+//            json = json.replace("]", "");
+//            json = json.replaceAll("},", "}£");
+//            List<String> array = Arrays.stream(json.split("£")).toList();
+            json = "{array : " + json + "}";
+            JSONTokener tokener = new JSONTokener(json);
+            JSONObject object = new JSONObject(tokener);
+            System.out.println(object);
+            JSONArray array = object.getJSONArray("array");
             List<Digimon> digimons = new ArrayList<>();
 
-            for (int i = 0 ; i < array.size() ; i++) {
-                JSONTokener tokener = new JSONTokener(array.get(i));
-                JSONObject object = new JSONObject(tokener);
+            for (int i = 0 ; i < array.length() ; i++) {
+                JSONObject jsonDigimon = array.getJSONObject(i);
+//                JSONTokener tokener = new JSONTokener(array.);
+//                JSONObject object = new JSONObject(tokener);
                 Digimon digimon = new Digimon();
-                digimon.setName(object.getString("name"));
-                digimon.setLevel(object.getString("level"));
-                digimon.setImg(object.getString("img"));
+                digimon.setName(jsonDigimon.getString("name"));
+                digimon.setLevel(jsonDigimon.getString("level"));
+                digimon.setImg(jsonDigimon.getString("img"));
                 digimon.setId(i);
                 digimons.add(digimon);
             }
