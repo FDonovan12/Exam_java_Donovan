@@ -1,7 +1,7 @@
 package org.example.appDonovan.view;
 
 import org.example.appDonovan.controller.ExempleController;
-import org.example.appDonovan.entity.ClassExemple;
+import org.example.appDonovan.entity.Region;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,21 +16,20 @@ public class ExempleView {
         this.cc = cc;
     }
 
-    public void index(List<ClassExemple> objects) {
+    public void index(List<Region> objects) {
         objects.forEach(System.out::println);
     }
 
-    public void show(ClassExemple object) {
+    public void show(Region object) {
         System.out.println(object);
     }
 
-    public void create(ClassExemple object) {
+    public void create(Region object) {
         System.out.println("Quel est le nom du pays ?");
         object.setName(sc.nextLine());
         System.out.println("Quel est le code du pays ?");
         object.setCode(sc.nextLine());
         System.out.println("Quel est la nationalité du pays ?");
-        object.setNationality(sc.nextLine());
         cc.create(object);
     }
 }

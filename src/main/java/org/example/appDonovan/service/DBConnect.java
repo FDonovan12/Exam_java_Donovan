@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnect {
     private static DBConnect dbConnect;
     private Connection connection;
-    private static final String url = "jdbc:mysql://localhost:3306/nimportequoi";
+    private static final String url = "jdbc:mysql://localhost:3306/exam_poec_2024";//nimportequoi";
     private static final String user = "root";
     private static final String pwd = "";
 

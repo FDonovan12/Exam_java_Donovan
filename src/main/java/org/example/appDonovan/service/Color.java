@@ -34,7 +34,7 @@ public class Color {
             Method getter = object.getClass().getDeclaredMethod("getId");
             Object id = getter.invoke(object);
             int color = 7;
-            if (id instanceof Long) {
+            if (id instanceof Integer) {
                 color = (Integer.parseInt(id.toString())%6)+1;
             }
             String colorFont = "";

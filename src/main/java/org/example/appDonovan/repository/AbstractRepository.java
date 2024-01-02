@@ -177,13 +177,13 @@ public abstract class AbstractRepository<T extends EntityInterface> {
     public T save(T object) {
         try {
             String query = "";
-            if (object.getId() == null) {
+            if (object.getId() == 0) {
                 query = insert(object);
                 ResultSet res = leDeuxiemeTrucQueKevinVeut(query);
                 ResultSet res2 = leDeuxiemeTrucQueKevinVeut("SELECT last_insert_id() FROM " + tableName);
                 res2.next();
                 String idString = res2.getString(1);
-                Long id = Long.parseLong(idString);
+                int id = Integer.parseInt(idString);
                 object.setId(id);
             } else {
                 query = update(object);
@@ -213,7 +213,7 @@ public abstract class AbstractRepository<T extends EntityInterface> {
     protected ResultSet leDeuxiemeTrucQueKevinVeut(String query) {
         try {
             Statement stmt = DBConnect.getInstance().createStatement();
-            System.out.println(ANSI_BACKGROUND_GREEN + " query : " + query + ANSI_RESET);
+//            System.out.println(ANSI_BACKGROUND_GREEN + " query : " + query + ANSI_RESET);
             ResultSet resultSet = stmt.executeQuery(query);
             List<T> resultQuery = new ArrayList<>();
             return resultSet;
