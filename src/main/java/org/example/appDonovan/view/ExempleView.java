@@ -1,7 +1,7 @@
-package org.example.app.view;
+package org.example.appDonovan.view;
 
-import org.example.app.controller.ExempleController;
-import org.example.app.entity.ClassExemple;
+import org.example.appDonovan.controller.ExempleController;
+import org.example.appDonovan.entity.ClassExemple;
 
 import java.util.List;
 import java.util.Scanner;

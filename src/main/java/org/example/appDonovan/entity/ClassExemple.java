@@ -1,12 +1,12 @@
-package org.example.app.entity;
+package org.example.appDonovan.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.app.service.Color;
+import org.example.appDonovan.service.Color;
 
-import static org.example.app.service.Color.randColorBack;
+import static org.example.appDonovan.service.Color.randColorBack;
 
 
 @NoArgsConstructor

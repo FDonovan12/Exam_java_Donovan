@@ -1,8 +1,8 @@
-package org.example.app.repository;
+package org.example.appDonovan.repository;
 
 
-import org.example.app.entity.EntityInterface;
-import org.example.app.service.DBConnect;
+import org.example.appDonovan.entity.EntityInterface;
+import org.example.appDonovan.service.DBConnect;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.example.app.service.Color.*;
+import static org.example.appDonovan.service.Color.*;
 
 
 public abstract class AbstractRepository<T extends EntityInterface> {

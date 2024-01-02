@@ -1,4 +1,4 @@
-package org.example.app.entity;
+package org.example.appDonovan.entity;
 
 public interface EntityInterface {
     Long getId();

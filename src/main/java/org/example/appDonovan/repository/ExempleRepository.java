@@ -1,8 +1,8 @@
-package org.example.app.repository;
+package org.example.appDonovan.repository;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.app.entity.ClassExemple;
+import org.example.appDonovan.entity.ClassExemple;
 
 import java.sql.ResultSet;
 import java.util.HashMap;

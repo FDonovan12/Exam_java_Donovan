@@ -1,9 +1,9 @@
-package org.example.app.controller;
+package org.example.appDonovan.controller;
 
 
-import org.example.app.entity.ClassExemple;
-import org.example.app.service.entity.ExempleService;
-import org.example.app.view.ExempleView;
+import org.example.appDonovan.entity.ClassExemple;
+import org.example.appDonovan.service.entity.ExempleService;
+import org.example.appDonovan.view.ExempleView;
 
 public class ExempleController {
 

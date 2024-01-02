@@ -1,4 +1,4 @@
-package org.example.app.service;
+package org.example.appDonovan.service;
 
 import java.io.IOException;
 import java.net.URI;

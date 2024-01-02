@@ -1,12 +1,9 @@
-package org.example.app;
+package org.example.appDonovan;
 
-import org.example.app.controller.ExempleController;
-import org.example.app.entity.ClassExemple;
-import org.example.app.repository.ExempleRepository;
+import org.example.appDonovan.repository.ExempleRepository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {

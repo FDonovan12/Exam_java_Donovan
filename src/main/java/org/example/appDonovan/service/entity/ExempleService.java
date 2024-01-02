@@ -1,8 +1,8 @@
-package org.example.app.service.entity;
+package org.example.appDonovan.service.entity;
 
-import org.example.app.dao.DAOService;
-import org.example.app.entity.ClassExemple;
-import org.example.app.repository.ExempleRepository;
+import org.example.appDonovan.dao.DAOService;
+import org.example.appDonovan.entity.ClassExemple;
+import org.example.appDonovan.repository.ExempleRepository;
 
 import java.util.HashMap;
 import java.util.List;
