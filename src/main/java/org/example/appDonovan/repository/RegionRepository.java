@@ -9,6 +9,7 @@ import org.example.appDonovan.entity.Region;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Getter
 @Setter
@@ -36,20 +37,16 @@ public class RegionRepository extends AbstractRepository <Region>{
     }
 
     public int findPopulationByRegion(Region region) {
-        List<Department> departments = DepartmentRepository.getRepository().findDepartmentsByRegion(region);
-        int sum = 0;
-        for (Department department : departments) {
-            sum+=DepartmentRepository.getRepository().findPopulationByDepartment(department);
-        }
-        return sum;
+        AtomicInteger sum = new AtomicInteger();
+        DepartmentRepository.getRepository().findDepartmentsByRegion(region)
+                .forEach(department -> sum.addAndGet(DepartmentRepository.getRepository().findPopulationByDepartment(department)));
+        return sum.get();
     }
 
     public List<City> findCitiesByRegion(Region region) {
-        List<Department> departments = DepartmentRepository.getRepository().findDepartmentsByRegion(region);
         List<City> cities = new ArrayList<>();
-        for (Department department : departments) {
-            cities.addAll(CityRepository.getRepository().findCitiesByDepartment(department));
-        }
+        DepartmentRepository.getRepository().findDepartmentsByRegion(region)
+                .forEach(department -> cities.addAll(CityRepository.getRepository().findCitiesByDepartment(department)));
         return cities;
     }
 

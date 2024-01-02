@@ -2,7 +2,6 @@ package org.example.appDonovan.repository;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.appDonovan.entity.City;
 import org.example.appDonovan.entity.Department;
 import org.example.appDonovan.entity.Region;
 
@@ -10,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Getter
 @Setter
@@ -46,12 +46,10 @@ public class DepartmentRepository extends AbstractRepository <Department>{
     }
 
     public int findPopulationByDepartment(Department department) {
-        List<City> cities = CityRepository.getRepository().findCitiesByDepartment(department);
-        int sum = 0;
-        for (City city : cities) {
-            sum+=city.getPopulation();
-        }
-        return sum;
+        AtomicInteger sum = new AtomicInteger();
+        CityRepository.getRepository().findCitiesByDepartment(department)
+                .forEach(city -> sum.addAndGet(city.getPopulation()));
+        return sum.get();
     }
     protected String insert(Department object) {
         return "";

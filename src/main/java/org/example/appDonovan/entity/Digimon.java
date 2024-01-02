@@ -14,15 +14,11 @@ import static org.example.appDonovan.service.Color.randColorBack;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Digimon {
+public class Digimon implements EntityInterface {
     private Integer id;
     private String name;
     private String level;
     private String img;
-
-//    public Digimon(int id) {
-//        this.id = id;
-//    }
 
     @Override
     public String toString() {
